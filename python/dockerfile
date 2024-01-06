@@ -1,0 +1,17 @@
+# Use a imagem oficial do Python 3.10 como base
+FROM python:3.10
+
+# Defina o diretório de trabalho
+WORKDIR /app
+
+# Copie o arquivo requirements.txt para o diretório de trabalho
+COPY requirements.txt .
+
+# Instale as dependências do Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie o código da aplicação para o diretório de trabalho
+COPY . .
+
+# Especifique o comando a ser executado quando o contêiner iniciar
+CMD ["python", "app.py"]
