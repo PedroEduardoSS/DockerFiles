@@ -1,0 +1,17 @@
+# Começamos com a imagem oficial do Go
+FROM golang:latest
+
+# Definimos o diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copiamos o código fonte para o diretório de trabalho no container
+COPY . .
+
+# Compilamos o código fonte
+RUN go build -o myapp
+
+# Exponhamos a porta que o aplicativo vai usar
+EXPOSE 8080
+
+# Definimos o comando que será executado quando o container for iniciado
+CMD ["/app/myapp"]
